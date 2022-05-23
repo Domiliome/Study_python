@@ -1,13 +1,12 @@
 class Pet:
     move = ""
-
-    mood = 3
-    feel = 2
+    mood = 0
+    feel = 0
     fresh = 0
-    sleep = 10
+    sleep = 0
 
     def __init__(self, name):
-        self.name = name
+        self.__name = name
 
     def eat(self):
         self.feel += 5
@@ -20,6 +19,7 @@ class Pet:
 
     def sleep_1(self):
         self.sleep -= 5
+        self.feel -= 1
 
     def play(self):
         self.fresh -= 5
@@ -31,28 +31,54 @@ class Pet:
             self.eat()
         elif self.move == "помыть":
             self.wash()
-        elif self.move == "усыпить":
+        elif self.move == "поспать":
             self.sleep_1()
         elif self.move == "поиграть":
             self.play()
-        else:
-            "Питомец доволен"
 
     def status(self):
-        if self.sleep > 8:
+        self.non_neg_status()
+        if self.sleep > 7:
             print("Питомец хочет спать \n")
-        if self.fresh < 2:
+        elif self.fresh < 2:
             print("Питомец грязный \n")
-        if self.feel < 3:
+        elif self.feel < 3:
             print("Питомец голоден \n")
-        if self.mood < 2:
+        elif self.mood < 2:
             print("Питомец скучает \n")
+        else:
+            "Питомец доволен"
         print("Настроение ", self.mood,
               "\nСамочувствие ", self.feel,
               "\nСвежесть ", self.fresh,
               "\nСонливость ", self.sleep)
 
-pet1 = Pet("Tom")
+    def non_neg_status(self):
+        if self.mood < 0: self.mood = 0
+        if self.feel < 0: self.feel = 0
+        if self.fresh < 0: self.fresh = 0
+        if self.sleep < 0: self.sleep = 0
+
+
+class Cat(Pet):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def sleep_1(self):
+        self.sleep -= 7
+        self.feel -= 2
+
+class Dog(Pet):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def play(self):
+        self.fresh -= 5
+        self.sleep += 5
+        self.mood += 7
+
+
+pet1 = Dog("Sam")
 while True:
     pet1.move = input("Введите действие ")
     pet1.change_move()
