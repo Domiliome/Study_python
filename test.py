@@ -20,6 +20,7 @@ class Canculator:
                     print("Такой операции не найдено. Cписок операций:\n"
                           "сумма | разность | умножение | деление")
 
+
     def sum(self):
         return [self.a + self.b, " + "]
 
@@ -36,22 +37,21 @@ class Canculator:
             return [self.a / self.b, " / "]
 
     def __check_variables(self):
-        # Страшная штука №1 #
+
         if not self.a.isdigit():
             try:
                 self.a = float(self.a)
             except ValueError:
-                print(self.a, " это не число")
+                print(self.a, "это не число.")
                 return False
         if type(self.a) == str:
             self.a = int(a)
 
-        # Страшная штука №2 #
         if not self.b.isdigit():
             try:
                 self.b = float(self.b)
             except ValueError:
-                print(self.b, " это не число")
+                print(self.b, "это не число.")
                 return False
         if type(self.b) == str:
             self.b = int(b)
@@ -61,7 +61,6 @@ class Canculator:
     def print_operation(self, operation):
         print(self.a, operation[1], self.b, " = ", operation[0])
         return str(self.a) + operation[1] + str(self.b) + " = " + str(operation[0])
-
 
 while True:
     a = input("Введите a: ")
