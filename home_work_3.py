@@ -39,13 +39,13 @@ class Pet:
     def status(self):
         self.non_neg_status()
         if self.sleep > 7:
-            print("Питомец хочет спать \n")
+            return "Питомец хочет спать"
         elif self.fresh < 2:
-            print("Питомец грязный \n")
+            return "Питомец грязный
         elif self.feel < 3:
-            print("Питомец голоден \n")
+            return "Питомец голоден
         elif self.mood < 2:
-            print("Питомец скучает \n")
+            return "Питомец скучает"
         else:
             "Питомец доволен"
         print("Настроение ", self.mood,
