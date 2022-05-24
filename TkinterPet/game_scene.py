@@ -47,7 +47,7 @@ class Game():
     def __begin_pet(self):
         cat1 = Cat("Tom")
 
-        self.canvas = Canvas(self.scene, background=self.color_play[0])
+        self.canvas = Canvas(self.scene, background=self.color_play[0], bd=0)
         self.img = PhotoImage(file="cat.png")
         self.image = self.canvas.create_image(250, 100, anchor='nw', image=self.img)
         self.button_1 = MyButton(self.scene, self.color_play, text="ПОИГРАТЬ", command=cat1.play)

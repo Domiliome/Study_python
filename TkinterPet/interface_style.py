@@ -1,6 +1,5 @@
 from tkinter import Button, Label
 
-
 class MyButton(Button):
     def __init__(self, scene, color, text, command):
         super().__init__(bg=color[0],
