@@ -1,3 +1,4 @@
+#Абстрактный класс
 from abc import ABC, abstractmethod
 
 

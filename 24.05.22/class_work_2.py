@@ -1,9 +1,10 @@
-from abc import ABC, abstractmethod
-
-
-class Car(ABC):
-    @abstractmethod
-    def move(self): pass
+# Полиморфизм
+class Car():
+    @staticmethod
+    def execute(o):
+        o.start()
+        o.signal()
+        o.stop()
 
 
 class Audi(Car):
@@ -11,6 +12,15 @@ class Audi(Car):
     def move(self):
         print("Поехали")
 
+    def start(self):
+        print("Audi start")
+
+    def stop(self):
+        print("Audi stop")
+
+    def signal(self):
+        print("*bip bup*")
+
 
 car1 = Audi()
-car1.move()
+Car.execute(car1)
