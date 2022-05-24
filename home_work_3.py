@@ -40,7 +40,6 @@ class Pet:
         elif self.move == "поиграть":
             self.play()
 
-
     def status(self):
         self.non_neg_status()
         if self.sleep > 7:
@@ -74,6 +73,7 @@ class Cat(Pet):
         self.sleep -= 7
         self.feel -= 2
         self.status()
+
 class Dog(Pet):
     def __init__(self, name):
         super().__init__(name)
@@ -89,4 +89,3 @@ class Dog(Pet):
 #while True:
     #pet1.move = input("Введите действие ")
     #pet1.change_move()
-    #print(pet1.status())
