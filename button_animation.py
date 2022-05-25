@@ -24,7 +24,7 @@ root = Tk()
 resize_window(root, 300, 300)
 
 button = Button(root, text="CLICK", width=10, height=1, bd=0, bg="#1c2732", fg="#fff", font=12,activebackground="#7aa5bc")
-button.pack(expand=True)
+button.pack(expand=True,fill=X)
 button.bind('<Enter>', print_hello)
 button.bind('<Leave>', print_bye)
 

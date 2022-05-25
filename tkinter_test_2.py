@@ -3,14 +3,14 @@ from tkinter.ttk import Style
 
 
 def style_main(widget):
-    widget["background"] = "#ef9740"
+    widget["background"] = "#dcdadc"
     if widget.widgetName == "button":
-        widget["activebackground"] = "#f3b271"
+        widget["activebackground"] = "#4e748e"
         widget["bd"] = 0
 
 
 def style_sub(widget):
-    widget["background"] = "#f5c492"
+    widget["background"] = "#97AAB7"
 
 
 class App(Frame):
