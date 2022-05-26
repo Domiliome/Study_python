@@ -56,22 +56,22 @@ class App(Frame):
         self.pack()
 
     def insert_actions(self):
-        s = self.txt_actions.get(1.0, END + "-1c")
-        if s != "":
-            s = s.split("\n")
-            for i in range(len(s)):
-                s[i] = s[i].strip()
-            s = list(filter(None, s))
-
-            self.actions.extend(s)
-            self.txt_actions.delete(1.0, END)
+        s = str(self.txt_actions.get(1.0, END + "-1c"))
+        #if s != "":
+        #    s = s.split("\n")
+        #    for i in range(len(s)):
+        #        s[i] = s[i].strip()
+        #    s = list(filter(None, s))
+        #
+        self.actions.append(s)
+        self.txt_actions.delete(1.0, END)
         self.lbl_actions["text"] = f"Count actions: {len(self.actions)}"
 
     def show_actions(self):
         actions_view = Toplevel(self.master)
         style_sub(actions_view)
 
-        resize_window(actions_view, 150, 250)
+        resize_window(actions_view, 400, 400)
 
         actions_view.focus_set()
         actions_view.grab_set()
@@ -80,11 +80,8 @@ class App(Frame):
         lbl_act.pack(side=TOP, padx=5, pady=5)
         style_sub(lbl_act)
 
-        listbox = Listbox(actions_view)
         for i in range(len(self.actions)):
-            listbox.insert(i, self.actions[i])
-        listbox.pack(side=TOP)
-        style_main(listbox)
+            Checkbutton(actions_view, text=str(self.actions[i])).pack(side=TOP)
 
         btn_exit = Button(master=actions_view, text="QUIT", width=5, height=2, command=actions_view.destroy)
         btn_exit.pack(side=TOP, padx=4, pady=8)
