@@ -1,5 +1,5 @@
 from tkinter import *
-from style import MyButton, MyLabel, MyText
+from style1 import MyButton, MyLabel, MyText
 
 
 class ListActions:

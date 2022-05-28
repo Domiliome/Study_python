@@ -3,14 +3,13 @@ from tkinter.ttk import Style
 
 
 def style_main(widget):
-    widget["background"] = "#dcdadc"
+    widget["background"] = "#7dbbe7"
     if widget.widgetName == "button":
         widget["activebackground"] = "#4e748e"
-        widget["bd"] = 0
 
 
 def style_sub(widget):
-    widget["background"] = "#97AAB7"
+    widget["background"] = "#419bdc"
 
 
 class App(Frame):
@@ -57,14 +56,9 @@ class App(Frame):
 
     def insert_actions(self):
         s = str(self.txt_actions.get(1.0, END + "-1c"))
-        #if s != "":
-        #    s = s.split("\n")
-        #    for i in range(len(s)):
-        #        s[i] = s[i].strip()
-        #    s = list(filter(None, s))
-        #
-        self.actions.append(s)
-        self.txt_actions.delete(1.0, END)
+        if s != "":
+            self.actions.append(s)
+            self.txt_actions.delete(1.0, END)
         self.lbl_actions["text"] = f"Count actions: {len(self.actions)}"
 
     def show_actions(self):
@@ -81,7 +75,7 @@ class App(Frame):
         style_sub(lbl_act)
 
         for i in range(len(self.actions)):
-            Checkbutton(actions_view, text=str(self.actions[i])).pack(side=TOP)
+            Checkbutton(actions_view, text=str(self.actions[i]), bg="#7dbbe7").pack(side=TOP)
 
         btn_exit = Button(master=actions_view, text="QUIT", width=5, height=2, command=actions_view.destroy)
         btn_exit.pack(side=TOP, padx=4, pady=8)
