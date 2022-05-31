@@ -1,6 +1,6 @@
 from tkinter import *
 
-from style import MyButton, MyLabel, MySubButton, ActionButton
+from style import MyLabel, MySubButton, ActionButton
 
 
 def resize_window(window, wight, height):
@@ -31,9 +31,9 @@ def add_action(name, description, window):
 
 def action_menu(action):
     action_window = Toplevel()
-    resize_window(action_window, 400, 200)
+    resize_window(action_window, 400, 400)
     action_window.grab_set()
-    action_window["bg"] = "#ccc1c1"
+    action_window["bg"] = "#93ce4f"
 
     action_window.grid_columnconfigure(0, weight=1)
     action_window.grid_columnconfigure(1, weight=1)
@@ -42,6 +42,7 @@ def action_menu(action):
     action_window.grid_rowconfigure(0, weight=1)
     action_window.grid_rowconfigure(1, weight=2)
     action_window.grid_rowconfigure(2, weight=2)
+    action_window.grid_rowconfigure(3, weight=2)
 
     lbl_name = MyLabel(action_window, text="название:")
     lbl_name.grid(row=0, column=0, sticky="e")
@@ -50,18 +51,18 @@ def action_menu(action):
     ent_name_action.grid(row=0, column=1, columnspan=3, sticky="we")
 
     txt_description = Text(action_window, width=1, height=1)
-    txt_description.grid(row=1, column=0, columnspan=4, sticky="nswe")
+    txt_description.grid(row=1, column=0, rowspan=2, columnspan=4, sticky="nswe")
 
     btn_close = MySubButton(action_window, text="закрыть", command=action_window.destroy)
-    btn_close.grid(row=2, column=2, columnspan=2, sticky="nswe")
+    btn_close.grid(row=3, column=2, columnspan=2, sticky="nswe")
     if action == btn_add_action:
         btn_add = MySubButton(action_window, text="добавить",
                               command=lambda: add_action(ent_name_action.get(), txt_description.get(1.0, END),
                                                          action_window))
-        btn_add.grid(row=2, column=0, columnspan=2, sticky="nswe")
+        btn_add.grid(row=3, column=0, columnspan=2, sticky="nswe")
     else:
         btn_delete = MySubButton(action_window, text="выполнено", command=lambda: del_action(action, action_window))
-        btn_delete.grid(row=2, column=0, columnspan=2, sticky="nswe")
+        btn_delete.grid(row=3, column=0, columnspan=2, sticky="nswe")
         ent_name_action.insert(0, action.name)
         ent_name_action["state"] = DISABLED
         txt_description.insert(1.0, action.description)
@@ -72,6 +73,7 @@ def history_menu():
     history_window = Toplevel()
     resize_window(history_window, 600, 400)
     history_window.grab_set()
+    history_window["bg"] = "#93ce4f"
 
     for thing in range(len(complete_actions)):
         MyLabel(history_window, text=complete_actions[thing].name).grid(row=thing, column=0)

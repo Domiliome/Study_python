@@ -5,18 +5,6 @@ FONT = ("Comfortaa")
 CLR = ["#ccc1c1", "#eae5e5", "#93ce4f", "#b5dd87"]
 RC = [["#FFA24C", "#ffc289"], ["#28C0CB", "#9de6eb"], ["#a05fe8", "#c298f0"]]
 
-
-class MyButton(Button):
-    def __init__(self, master, text, command="", anchor="center", width=0, height=0):
-        super().__init__(master=master, text=text, command=command,
-                         anchor=anchor, width=width, height=height)
-        self["font"] = FONT
-        self["bg"] = CLR[0]
-        self["bd"] = 0
-        self.bind("<Enter>", lambda e: self.configure(bg=CLR[1]))
-        self.bind("<Leave>", lambda e: self.configure(bg=CLR[0]))
-
-
 class MySubButton(Button):
     def __init__(self, master, text, command="", anchor="center", width=0, height=0):
         super().__init__(master=master, text=text, command=command,
