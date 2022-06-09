@@ -1,6 +1,6 @@
 from tkinter import *
-from TkinterPet.interface_style import MyButton
-from home_work_3 import Cat
+from Pet.interface_style import MyButton
+from HomeWork.home_work_3 import Cat
 
 
 class Game():

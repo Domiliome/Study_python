@@ -1,6 +1,6 @@
 from tkinter import *
 
-from style import MyLabel, MySubButton, ActionButton
+from Style import MyLabel, MySubButton, ActionButton
 
 
 def resize_window(window, wight, height):

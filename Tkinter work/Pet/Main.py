@@ -1,11 +1,11 @@
 from tkinter import *
-from TkinterPet.game_scene import Game
+from Pet.game_scene import Game
 
 
 class MainWindow:
     def __init__(self):
         self.root = Tk()
-        self.root.title("Tkinter Pat")
+        self.root.title("Tkinter work Pat")
         self.root.resizable()
 
         # Окно по центру любого экрана #
