@@ -1,5 +1,4 @@
 from datetime import datetime
-from time import time
 from tkinter import *
 
 # {"name": "user", "message": "Hello", "datetime": "841241242"}
@@ -25,6 +24,7 @@ def welcome():
         ent_login.configure(state=NORMAL)
         ent_login.delete(0, END)
         btn_login["text"] = "Войти"
+
 
 def send():
     user.append(dict({"name": ent_login.get(),
