@@ -1,7 +1,9 @@
 from datetime import datetime
+from time import time
 from tkinter import *
 
-user = [{"name": "user", "message": "Hello", "datetime": "841241242"}]
+# {"name": "user", "message": "Hello", "datetime": "841241242"}
+user = []
 
 
 def resize_window(window, wight, height):
@@ -15,22 +17,24 @@ def resize_window(window, wight, height):
     window.geometry('{}x{}+{}+{}'.format(size[0], size[1], w, h))
 
 
-def welcome(name):
+def welcome():
     if btn_login["text"] == "Войти":
         ent_login.configure(state=DISABLED)
         btn_login["text"] = "Выйти"
-        name = name.capitalize()
-        user.append(name)
     else:
         ent_login.configure(state=NORMAL)
         ent_login.delete(0, END)
         btn_login["text"] = "Войти"
-        user.clear()
 
-def send(message):
-    user.append(dict({"name": ent_login.get(), "message": ent_send, "datetime": datetime.now().strftime("%H:%M:%S ")}))
-
-
+def send():
+    user.append(dict({"name": ent_login.get(),
+                      "message": ent_send.get(),
+                      "datetime": datetime.now()}))
+    txt_chat.delete(1.0, END)
+    for thing in user:
+        txt_chat.insert(1.0, thing.get("datetime").strftime("%H:%M:%S") + " - "
+                        + thing.get("name") + ": "
+                        + thing.get("message") + "\n")
 
 
 root = Tk()
@@ -50,7 +54,7 @@ lbl_send.grid(row=0, column=0)
 ent_send = Entry(root)
 ent_send.grid(row=0, column=1)
 
-btn_send = Button(root, text="отправить", width=20, height=5, command=lambda: send(ent_send.get()))
+btn_send = Button(root, text="Отправить", width=20, height=5, command=send)
 btn_send.grid(row=1, column=0, columnspan=2)
 
 lbl_login = Label(root, text="Имя: ")
@@ -59,7 +63,7 @@ lbl_login.grid(row=0, column=2)
 ent_login = Entry(root)
 ent_login.grid(row=0, column=3)
 
-btn_login = Button(root, text="Войти", width=20, height=5, command=lambda: welcome(ent_login.get()))
+btn_login = Button(root, text="Войти", width=20, height=5, command=welcome)
 btn_login.grid(row=1, column=2, columnspan=2)
 
 txt_chat = Text(root)

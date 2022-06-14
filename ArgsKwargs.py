@@ -18,4 +18,4 @@ def print_kwargs(**kwargs):
 
 
 print_args(0, 2, 3)
-print_kwargs(my_name="Sammy", your_name="Casey")
+print_kwargs(name="Sammy", your_name="Casey")
