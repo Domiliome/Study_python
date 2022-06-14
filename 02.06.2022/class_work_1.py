@@ -8,12 +8,9 @@ class FileReader:
             if r_var.get():
                 file = open(file_directory, "w")
                 file.write(txt_result.get(1.0, tk.END))
-
             else:
-
                 file = open(file_directory, "r")
                 txt_result.insert(1.0, file.read())
-
             file.close()
         except FileNotFoundError:
             pass
