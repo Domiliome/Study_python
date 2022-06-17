@@ -1,1 +1,1 @@
-# python genius code*Вова 123
+# python genius code

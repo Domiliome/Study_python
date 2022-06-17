@@ -1,4 +1,4 @@
-file = open("README.md", "r")
+file = open("../README.md", "r")
 file_text = file.read()
 login = input("Введите логин")
 password = input("Введите пароль")
