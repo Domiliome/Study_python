@@ -1,5 +1,5 @@
 from tkinter import *
-from Pet.game_scene import Game
+from game_scene import Game
 
 
 class MainWindow:

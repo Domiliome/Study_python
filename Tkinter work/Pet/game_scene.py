@@ -1,5 +1,5 @@
 from tkinter import *
-from Pet.interface_style import MyButton
+from interface_style import MyButton
 from Study.HomeWork.home_work_3 import Cat
 
 
