@@ -1,6 +1,11 @@
-dict_a = {1: 10, 2: 20}
-dict_b = {3: 30, 4: 40}
-dict_c = {5: 50, 6: 60}
+import re
 
-result = {**dict_a, **dict_b, **dict_c}
-print(result)
+reg_exp = r"@\w+.(\w+)"
+file = open("text.txt", "r", encoding="utf-8")
+
+data = file.read()
+arr = re.findall(reg_exp, data)
+
+
+file.close()
+print(arr)
