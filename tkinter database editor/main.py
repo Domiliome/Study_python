@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-
+https://pythonru.com/biblioteki/posgresql-python-select
 import psycopg2
 
 data = {"user": "postgres", "password": "123", "host": "localhost", "port": "5432", "database": "postgres_db"}
