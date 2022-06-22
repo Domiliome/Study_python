@@ -21,8 +21,8 @@ async def process_help_command(message: types.Message):
 
 @dp.message_handler(commands=["cat"])
 async def process_multimedia_command(message: types.Message):
-    media = [InputMediaVideo("hedgehog.mp4", "ёжик и котяты")]
-    await bot.send_media_group(message.from_user.id, media)
+    with open('hedgehog.mp4', 'rb') as video:
+        await bot.send_video(message.from_user.id, video)
 
 if __name__ == "__main__":
     executor.start_polling(dp)
