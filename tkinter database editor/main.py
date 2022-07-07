@@ -30,7 +30,8 @@ def db_call():
 def db_insert(record):
     connection = psycopg2.connect(**data)
     cursor = connection.cursor()
-    insert_query = f""" INSERT INTO mobile (ID, MODEL, PRICE) VALUES ({record[0]}, '{record[1]}', {record[2]})"""
+    insert_query = f""" INSERT INTO mobile (ID, MODEL, PRICE)
+                            VALUES ({record[0]}, '{record[1]}', {record[2]})"""
     cursor.execute(insert_query)
     connection.commit()
     cursor.close()
