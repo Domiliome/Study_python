@@ -12,12 +12,14 @@ def pre_order(node: TreeNode) -> None:
         pre_order(node.left)
         pre_order(node.right)
 
+
 # Обратный обход дерева
 def post_order(node: TreeNode) -> None:
     if node:
         post_order(node.left)
         post_order(node.right)
         print(node.value)
+
 
 # Обратный обход дерева
 def in_order(node: TreeNode) -> None:
@@ -35,7 +37,6 @@ def main():
     tree.right = TreeNode(4)
     tree.right.left = TreeNode(7)
     tree.right.right = TreeNode(9)
-
     in_order(tree)
 
 
