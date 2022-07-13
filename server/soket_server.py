@@ -6,8 +6,8 @@ server_sock.listen(5)
 while True:
     sock, addr = server_sock.accept()
     while True:
-        data = sock.recv(1024)  # Receive
+        data = sock.recv(1024)
         result = data.decode()
         result = int(result) * 10
         data = str(result).encode()
-        sock.sendall(data)  # Send
+        sock.sendall(data)
