@@ -16,7 +16,6 @@ class Auto:
         self.y += self.speed
         self.status()
 
-
     def status(self):
         print(f"Автомобиль - x : {self.x} - y : {self.y}")
 
@@ -44,13 +43,12 @@ def main():
         tr2.move_x()
     for i in range(random.randrange(10)):
         tr2.move_y()
-
     au = Auto((1, 1))
     for i in range(random.randrange(10)):
         au.move_x()
     for i in range(random.randrange(10)):
         au.move_y()
 
+
 if __name__ == "__main__":
     main()
-
