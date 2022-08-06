@@ -1,13 +1,14 @@
 from tkinter import *
 from tkinter import ttk
-from func import setWindow, addModal
+from func import setWindow, addModal, delBook
 from Books import Books
 
 mainWindow = Tk()
 books = Books()
 setWindow(mainWindow, 800, 300, 'Библиотека')
-#КОД ПРОГРАММЫ
+# КОД ПРОГРАММЫ
 table = ttk.Treeview(mainWindow)
+Button(mainWindow, text="Удалить выбранную книгу", command=lambda: delBook(table, books)).pack()
 Button(mainWindow, text="Добавить книгу", command=lambda: addModal(table, mainWindow, books)).pack()
 columns = []
 for column in books.labels.keys():
@@ -21,5 +22,5 @@ for column in columns:
 for row in books.getAllBooks():
     table.insert(parent='', index='end', iid=row[0], text='', values=row)
 table.pack()
-#КОНЕЦ ПРОГРАММЫ
+# КОНЕЦ ПРОГРАММЫ
 mainWindow.mainloop()

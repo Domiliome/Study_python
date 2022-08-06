@@ -1,5 +1,6 @@
 from tkinter import *
 
+
 def setWindow(root, width, height, title):
     root.title(title)
     root.resizable(False, False)
@@ -8,6 +9,7 @@ def setWindow(root, width, height, title):
     x = int(ws / 2 - width / 2)
     y = int(wh / 2 - height / 2)
     root.geometry(f"{width}x{height}+{x}+{y}")
+
 
 def addModal(table, root, books):
     add = Toplevel(root)
@@ -20,10 +22,20 @@ def addModal(table, root, books):
     Label(add, text="Автор книги").pack()
     author = Entry(add)
     author.pack()
+
     def addBook():
         books.insert(title.get(), author.get())
         last = books.getLast()
         table.insert(parent='', index='end', iid=last[0], text='', values=last)
         add.destroy()
         add.update()
+
     Button(add, text="Добавить", command=addBook).pack()
+
+def delBook(table, books):
+    item = table.selection()[0]
+    books.delete(table.selection()[0])
+    table.delete(item)
+    table.config(height=len(table.get_children()))
+
+

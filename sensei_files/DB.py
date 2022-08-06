@@ -1,9 +1,12 @@
 import MySQLdb
+
+
 class DB:
     database = 'library'
     user = 'root'
     password = ''
     host = 'localhost'
+
     def __getConntection(self):
         return MySQLdb.connect(
             self.host,
