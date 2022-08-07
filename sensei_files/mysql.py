@@ -3,6 +3,8 @@ from options import *
 
 import MySQLdb
 
+from sensei_files.main import TabelWindow
+
 
 class Base:
     def __init__(self, name_db):
@@ -35,43 +37,6 @@ class Base:
         data = cursor.fetchall()
         self.set_status_connection("off")
         return data
-
-
-class TabelEditor(Tk):
-    def __init__(self):
-        super().__init__()
-        resize_window(self, 400, 400)
-
-        self.records = []
-
-        self.lbl_age = None
-        self.lbl_breed = None
-        self.lbl_name = None
-
-        self.create_space()
-        self.update_tabel()
-
-    def update_tabel(self):
-
-        db = Base("test")
-        data = db.get_data_query("horses", ("name", "breed", "age"))
-        print(data)
-
-    def create_space(self):
-        self.grid_columnconfigure(0, weight=1)
-        self.grid_columnconfigure(1, weight=1)
-        self.grid_columnconfigure(2, weight=1)
-        self.grid_rowconfigure(0, weight=1)
-
-        self.lbl_name = Label(text="Имя")
-        self.lbl_name.grid(row=0, column=0)
-
-        self.lbl_breed = Label(text="Порода")
-        self.lbl_breed.grid(row=0, column=1)
-
-        self.lbl_age = Label(text="Возраст")
-        self.lbl_age.grid(row=0, column=2)
-
 
 class Auth(Tk):
     def __init__(self):
@@ -113,14 +78,14 @@ class Auth(Tk):
     def editor(self):
         if self.check_data():
             self.destroy()
-            tab_edit = TabelEditor()
+            tab_edit = TabelWindow()
             tab_edit.mainloop()
         else:
             self.lbl_check["text"] = "Неверный логин|пароль"
 
     def check_data(self):
         user = self.get_user_data()
-        db = Base("test")
+        db = Base("library")
         data = db.get_data_query("users", ("login", "password"))
         if user in data:
             return True

@@ -1,7 +1,10 @@
 from DB import DB
+from migration import *
 
 
 class Books(DB):
+    data = Migration()
+    data.copy()
     table = 'books'
     labels = dict(
         {
