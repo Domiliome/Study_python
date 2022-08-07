@@ -4,7 +4,7 @@ import MySQLdb
 class DB:
     database = 'library'
     user = 'root'
-    password = ''
+    password = 'root'
     host = 'localhost'
 
     def __getConntection(self):

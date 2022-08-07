@@ -16,7 +16,7 @@ class Base:
             try:
                 self.__connection = MySQLdb.connect(host="localhost",
                                                     user="root",
-                                                    passwd="",
+                                                    passwd="root",
                                                     db=f"{self.name_db}")
             except MySQLdb.OperationalError:
                 print("Не найдена база данных")
