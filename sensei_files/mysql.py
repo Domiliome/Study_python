@@ -16,7 +16,7 @@ class Base:
             try:
                 self.__connection = MySQLdb.connect(host="localhost",
                                                     user="root",
-                                                    passwd="root",
+                                                    passwd="",
                                                     db=f"{self.name_db}")
             except MySQLdb.OperationalError:
                 print("Не найдена база данных")
@@ -24,7 +24,7 @@ class Base:
             try:
                 self.__connection.close()
             except AttributeError:
-                print("Соединение не подключено")
+                print("Соединение нихуя не подключено")
 
     def get_connection(self):
         return self.__connection
